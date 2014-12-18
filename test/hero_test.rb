@@ -1,14 +1,20 @@
 require 'minitest/autorun'
-require './time2/hero'
+require './lib/hero'
 
 class HeroTest < MiniTest::Unit::TestCase
 
+	def setup
+		@hero = Hero.new
+	end
+
 	def test_hero_action_move_left
-		assert_equal(:move_left, Hero.new.action('a')) 
+		@hero.action('a')
+		assert_equal(28, @hero.position) 
 	end
 
 	def test_hero_action_move_right
-		assert_equal(:move_right, Hero.new.action('d')) 
+		@hero.action('d')
+		assert_equal(32, @hero.position) 
 	end
 
 	def test_hero_action_fire
