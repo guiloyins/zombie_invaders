@@ -1,7 +1,5 @@
 # encoding: utf-8
 require 'io/console'
-require './time2/hero'
-
 enemy = '[]'
 hero = 'A'
 
@@ -32,8 +30,7 @@ while true
  ║                                     ║
  ║                                     ║
  ║#{ hero_animation.join }║
- ║_____________________________________║
- ║   A = Left , D = Right, Q = Quit    ║
+ ║,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,║
  ╚═════════════════════════════════════╝
  }
   input = STDIN.getch
@@ -41,13 +38,11 @@ while true
   if input == 'q'
     exit
   end
-  
-  if Hero.new.action(input) == :move_left && hero_position > 0
+  if input == 'a' && hero_position > 0
     hero_animation[hero_position] = ' '
     hero_position -= 2
     hero_animation[hero_position] = hero
   end
-
   if input == 'd' && hero_position < 36
     hero_animation[hero_position] = ' '
     hero_position += 2
