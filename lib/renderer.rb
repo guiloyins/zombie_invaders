@@ -36,6 +36,5 @@ class Renderer
    ║   A = Left , D = Right, Q = Quit    ║
    ╚═════════════════════════════════════╝
    }
-    
   end
 end

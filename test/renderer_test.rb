@@ -2,18 +2,15 @@
 
 require 'test/unit'
 require './lib/renderer'
+require './lib/hero'
 
 class RendererTest < Test::Unit::TestCase
-  def test_render
-    enemy = '[]'
-    hero = 'A'
-    hero_animation = []
-    37.times { hero_animation << " " }
+  def setup
+    @hero = Hero.new
+  end
 
-    hero_position = 30
-    hero_animation[hero_position] = hero
-
-    render = Renderer.new.call
+  def test_initial_game
+    render = Renderer.new(@hero).call
     render_spected = 
 %{
    ╔═════════════════════════════════════╗
@@ -21,7 +18,7 @@ class RendererTest < Test::Unit::TestCase
    ║  * * *    Zombie Invaders    * * *  ║
    ║                                     ║
    ║═════════════════════════════════════║
-   ║      #{enemy} #{enemy} #{enemy}                       ║
+   ║      [] [] []                       ║
    ║                                     ║
    ║                                     ║
    ║                                     ║
@@ -29,7 +26,7 @@ class RendererTest < Test::Unit::TestCase
    ║                                     ║
    ║                                     ║
    ║                                     ║
-   ║#{ hero_animation.join }║
+   ║                              A      ║
    ║_____________________________________║
    ║   A = Left , D = Right, Q = Quit    ║
    ╚═════════════════════════════════════╝
