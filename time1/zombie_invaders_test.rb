@@ -1,54 +1,21 @@
 # encoding: utf-8
 
-class Game
+require 'test/unit'
+require './zombie_invaders'
 
-  def initialize
-    renderer = Renderer.new
-    while true
-      clear
-      puts renderer.call
-      input = STDIN.getch
-      puts input
-      if input == 'q'
-        exit
-      end
-      if input == 'a' && hero_position > 0
-        hero_animation[hero_position] = ' '
-        hero_position -= 2
-        hero_animation[hero_position] = hero
-      end
-      if input == 'd' && hero_position < 36
-        hero_animation[hero_position] = ' '
-        hero_position += 2
-        hero_animation[hero_position] = hero
-      end
-    end
-  end
-end
-
-
-class Renderer
-  require 'io/console'
-  
-  def initialize()
-  end
-
-  def clear
-    900.times { puts "\n" }
-  end
-  
-  def call
+class RendererTest < Test::Unit::TestCase
+  def test_render
     enemy = '[]'
     hero = 'A'
-
-
     hero_animation = []
     37.times { hero_animation << " " }
 
     hero_position = 30
     hero_animation[hero_position] = hero
 
-   %{
+    render = Renderer.new.call
+    render_spected = 
+%{
    ╔═════════════════════════════════════╗
    ║                                     ║
    ║  * * *    Zombie Invaders    * * *  ║
@@ -67,6 +34,8 @@ class Renderer
    ║   A = Left , D = Right, Q = Quit    ║
    ╚═════════════════════════════════════╝
    }
-    
+
+    assert_equal(render_spected,render)
   end
 end
+
