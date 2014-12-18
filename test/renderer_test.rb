@@ -1,7 +1,7 @@
 # encoding: utf-8
 
 require 'test/unit'
-require './zombie_invaders'
+require './lib/renderer'
 
 class RendererTest < Test::Unit::TestCase
   def test_render
