@@ -3,6 +3,10 @@ require 'io/console'
 enemy = '[]'
 hero = 'A'
 
+def clear
+  900.times { puts "\n" }
+end
+
 hero_animation = []
 37.times { hero_animation << " " }
 
@@ -10,6 +14,7 @@ hero_position = 30
 hero_animation[hero_position] = hero
 
 while true
+  clear
   puts %{
  ╔═════════════════════════════════════╗
  ║                                     ║
@@ -17,9 +22,6 @@ while true
  ║                                     ║
  ║═════════════════════════════════════║
  ║      #{enemy} #{enemy} #{enemy}                       ║
- ║                                     ║
- ║                                     ║
- ║                                     ║
  ║                                     ║
  ║                                     ║
  ║                                     ║
