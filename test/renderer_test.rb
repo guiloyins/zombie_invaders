@@ -32,7 +32,92 @@ class RendererTest < Test::Unit::TestCase
    ╚═════════════════════════════════════╝
    }
 
-    assert_equal(render_spected,render)
+    assert_equal(render_spected, render)
+  end
+
+  def test_move_left
+    @hero.action('a')
+    render = Renderer.new(@hero).call
+    render_spected = 
+%{
+   ╔═════════════════════════════════════╗
+   ║                                     ║
+   ║  * * *    Zombie Invaders    * * *  ║
+   ║                                     ║
+   ║═════════════════════════════════════║
+   ║      [] [] []                       ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                            A        ║
+   ║_____________________________________║
+   ║   A = Left , D = Right, Q = Quit    ║
+   ╚═════════════════════════════════════╝
+   }
+
+    assert_equal(render_spected, render)
+  end
+
+  def test_move_right
+    @hero.action('d')
+    render = Renderer.new(@hero).call
+    render_spected = 
+%{
+   ╔═════════════════════════════════════╗
+   ║                                     ║
+   ║  * * *    Zombie Invaders    * * *  ║
+   ║                                     ║
+   ║═════════════════════════════════════║
+   ║      [] [] []                       ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                A    ║
+   ║_____________________________________║
+   ║   A = Left , D = Right, Q = Quit    ║
+   ╚═════════════════════════════════════╝
+   }
+
+    assert_equal(render_spected, render)
+  end
+
+  def test_move_right_max
+    @hero.action('d')
+    @hero.action('d')
+    @hero.action('d')
+    @hero.action('d')
+    @hero.action('d')
+    render = Renderer.new(@hero).call
+    render_spected = 
+%{
+   ╔═════════════════════════════════════╗
+   ║                                     ║
+   ║  * * *    Zombie Invaders    * * *  ║
+   ║                                     ║
+   ║═════════════════════════════════════║
+   ║      [] [] []                       ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                     ║
+   ║                                    A║
+   ║_____________________________________║
+   ║   A = Left , D = Right, Q = Quit    ║
+   ╚═════════════════════════════════════╝
+   }
+
+    assert_equal(render_spected, render)
   end
 end
 
