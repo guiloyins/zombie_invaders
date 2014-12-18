@@ -1,6 +1,10 @@
 # encoding: utf-8
-
+require './renderer'
 class Game
+
+  def clear
+    900.times { puts "\n" }
+  end
 
   def initialize
     renderer = Renderer.new
@@ -24,4 +28,7 @@ class Game
       end
     end
   end
+
 end
+
+Game.new
