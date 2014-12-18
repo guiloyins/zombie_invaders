@@ -1,47 +1,49 @@
 # encoding: utf-8
+require 'io/console'
 enemy = '[]'
-hero = 'A|'
+hero = 'A'
 
-hero_animation = Array(28)
-hero_animation[15] = hero
+hero_animation = []
+37.times { hero_animation << " " }
 
-frame1 = %{
-╔═════════════════════════════════════╗
-║      #{enemy} #{enemy} #{enemy}                       ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║             #{hero}                      ║
-╚═════════════════════════════════════╝
-}
-
-frame2 = %{
-╔═════════════════════════════════════╗
-║      #{enemy} #{enemy} #{enemy}                       ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║                                     ║
-║              #{hero}                     ║
-╚═════════════════════════════════════╝
-}
+hero_position = 30
+hero_animation[hero_position] = hero
 
 while true
-  puts frame1
-  sleep 0.5
-  puts frame2
-  sleep 0.5
+  puts %{
+ ╔═════════════════════════════════════╗
+ ║                                     ║
+ ║  * * *    Zombie Invaders    * * *  ║
+ ║                                     ║
+ ║═════════════════════════════════════║
+ ║      #{enemy} #{enemy} #{enemy}                       ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║                                     ║
+ ║#{ hero_animation.join }║
+ ║,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,║
+ ╚═════════════════════════════════════╝
+ }
+  input = STDIN.getch
+  puts input
+  if input == 'q'
+    exit
+  end
+  if input == 'a' && hero_position > 0
+    hero_animation[hero_position] = ' '
+    hero_position -= 2
+    hero_animation[hero_position] = hero
+  end
+  if input == 'd' && hero_position < 36
+    hero_animation[hero_position] = ' '
+    hero_position += 2
+    hero_animation[hero_position] = hero
+  end
 end
