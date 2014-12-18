@@ -1,4 +1,5 @@
 # encoding: utf-8
+require 'io/console'
 enemy = '[]'
 hero = 'A'
 
@@ -30,16 +31,19 @@ while true
  ║,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,║
  ╚═════════════════════════════════════╝
  }
-  sleep 0.5
-  input = gets.chomp
+  input = STDIN.getch
+  puts input
+  if input == 'q'
+    exit
+  end
   if input == 'a' && hero_position > 0
     hero_animation[hero_position] = ' '
-    hero_position -= 1
+    hero_position -= 2
     hero_animation[hero_position] = hero
   end
   if input == 'd' && hero_position < 36
     hero_animation[hero_position] = ' '
-    hero_position += 1
+    hero_position += 2
     hero_animation[hero_position] = hero
   end
 end
