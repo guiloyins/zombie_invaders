@@ -1,13 +1,19 @@
 # encoding: utf-8
 
 class Hero
+	attr_accessor :position
+
+	def initialize
+		@position = 30
+	end
+
 	def action(key)
 		if key == 'd'
-			:move_right
+			@position += 2 if @position < 36
 		elsif	key == 'l'
 			:fire
 		else
-			:move_left
+			@position -= 2 if @position > 0
 		end
 	end
 

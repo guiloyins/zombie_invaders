@@ -2,23 +2,20 @@
 class Renderer
   require 'io/console'
   
-  def initialize()
+  def initialize(hero)
+    @hero = hero
   end
 
   def clear
-    900.times { puts "\n" }
+    30.times { puts "\n" }
   end
   
   def call
     enemy = '[]'
-    hero = 'A'
 
-
-    hero_animation = []
-    37.times { hero_animation << " " }
-
-    hero_position = 30
-    hero_animation[hero_position] = hero
+    @hero_animation = []
+    37.times { @hero_animation << " " }
+    @hero_animation[@hero.position] = @hero.cloth
 
    %{
    ╔═════════════════════════════════════╗
@@ -34,7 +31,7 @@ class Renderer
    ║                                     ║
    ║                                     ║
    ║                                     ║
-   ║#{ hero_animation.join }║
+   ║#{ @hero_animation.join }║
    ║_____________________________________║
    ║   A = Left , D = Right, Q = Quit    ║
    ╚═════════════════════════════════════╝
