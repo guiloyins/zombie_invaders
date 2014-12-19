@@ -90,7 +90,7 @@ class Game
   end
 
   def add_new_zombies
-    if @zombies.length
+    if @zombies.length > 0
       @game_matriz.pop
       @game_matriz.unshift(@zombies.pop)
     end
