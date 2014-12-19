@@ -1,7 +1,5 @@
 # encoding: utf-8
 
-require "./lib/hero"
-require "./lib/renderer"
 require "timeout"
 
 class Game
