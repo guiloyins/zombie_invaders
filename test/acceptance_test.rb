@@ -10,49 +10,45 @@ class AcceptanceTest < Test::Unit::TestCase
 
   def test_initial_game
 
-    assert_screen(
-      [" @ @  ",
-       "      ",
-       "      ",
-       "      ",
-       "   A  "])
+    screen(
+      " @ @  ",
+      "      ",
+      "      ",
+      "      ",
+      "   A  ")
   end
 
   def test_move_left
-    @game.left
+    left
 
-    assert_screen(
-      [" @ @  ",
+    screen(
+      " @ @  ",
        "      ",
        "      ",
        "      ",
-       "  A   "])
+       "  A   ")
   end
 
   def test_move_right
-    @game.right
+    right
 
-    assert_screen(
-      [" @ @  ",
+    screen(
+      " @ @  ",
        "      ",
        "      ",
        "      ",
-       "    A "])
+       "    A ")
   end
 
   def test_move_right_max
-    @game.right
-    @game.right
-    @game.right
-    @game.right
-    @game.right
+    right(5)
 
-    assert_screen(
-      [" @ @  ",
+    screen(
+      " @ @  ",
        "      ",
        "      ",
        "      ",
-       "     A"])
+       "     A")
   end
 
   def test_move_left_max
@@ -62,59 +58,59 @@ class AcceptanceTest < Test::Unit::TestCase
     @game.left
     @game.left
 
-    assert_screen(
-      [" @ @  ",
+    screen(
+      " @ @  ",
        "      ",
        "      ",
        "      ",
-       "A     "])
+       "A     ")
   end
 
   # def test_hero_shoot
   #   @game.fire
-  #   assert_screen(["@ @   ",
+  #   screen("@ @   ",
   #                  "      ",
   #                  "      ",
   #                  "   '  ",
-  #                  "   A  "])
+  #                  "   A  ")
   #   @game.pass
-  #   assert_screen([" @ @  ",
+  #   screen(" @ @  ",
   #                  "      ",
   #                  "   '  ",
   #                  "      ",
-  #                  "   A  "])
+  #                  "   A  ")
   #   @game.pass
-  #   assert_screen(["  @ @ ",
+  #   screen("  @ @ ",
   #                  "   '  ",
   #                  "      ",
   #                  "      ",
-  #                  "   A  "])
+  #                  "   A  ")
   #   @game.pass
-  #   assert_screen(["     @",
+  #   screen("     @",
   #                  "      ",
   #                  "      ",
   #                  "      ",
-  #                  "   A  "])
+  #                  "   A  ")
   #   @game.pass
-  #   assert_screen(["    @ ",
+  #   screen("    @ ",
   #                  "      ",
   #                  "      ",
   #                  "      ",
-  #                  "   A  "])
+  #                  "   A  ")
   # end
 
   # def test_game_over
   #   @game.fire
   #   4.times { @game.pass }
-  #   assert_screen(["    @ ",
+  #   screen("    @ ",
   #                  "      ",
   #                  "      ",
   #                  "      ",
-  #                  "   A  "])
+  #                  "   A  ")
   # end
 
-  def assert_screen(screen)
-    assert_equal(screen.join("\n"), @game.render)
+  def screen(*lines)
+    assert_equal(lines.join("\n"), @game.render)
   end
 end
 

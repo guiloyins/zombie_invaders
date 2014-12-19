@@ -7,24 +7,25 @@ require "timeout"
 class Game
   attr_reader :renderer
 
+  HERO_CHAR = "A"
+
   def initialize
     @renderer = Renderer.new(@hero)
     @hero_animation, @hero_fire = [], []
     @fire_position = nil
     @hero_position = 3
-    @hero_char = "A"
     6.times do
       @hero_animation << " "
       @hero_fire << " "
     end
-    @hero_animation[@hero_position] = @hero_char
+    @hero_animation[@hero_position] = HERO_CHAR
   end
 
   def render
     @hero_animation = []
     6.times { @hero_animation << " " }
 
-    @hero_animation[@hero_position] = @hero_char
+    @hero_animation[@hero_position] = HERO_CHAR
     @hero_fire[@fire_position] = "'" if @fire_position
 
     @renderer.clear
@@ -49,7 +50,6 @@ class Game
   end
 
   def pass
-    render
   end
 
 end

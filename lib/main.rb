@@ -14,21 +14,11 @@ class Main
           $input = STDIN.getch
         end
 
-        if $input == 'q'
-          exit
-        end
-        
-        if $input == 'a'
-          @game.left
-        end
+        exit if $input == 'q'
+        @game.left  if $input == 'a'
+        @game.right if $input == 'd'
+        @game.fire  if $input == 'l'
 
-        if $input == 'd'
-          @game.right
-        end
-
-        if $input == 'l'
-          @game.fire
-        end
       rescue Timeout::Error
         @game.pass
       end
