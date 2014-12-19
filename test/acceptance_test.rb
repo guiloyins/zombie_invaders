@@ -62,38 +62,33 @@ class AcceptanceTest < Test::Unit::TestCase
        "A     ")
   end
 
-  # def test_hero_shoot
-  #   fire
-  #   screen("@ @   ",
-  #          "      ",
-  #          "      ",
-  #          "   '  ",
-  #          "   A  ")
-  #   pass
-  #   screen(" @ @  ",
-  #          "      ",
-  #          "   '  ",
-  #          "      ",
-  #          "   A  ")
-  #   pass
-  #   screen("  @ @ ",
-  #          "   '  ",
-  #          "      ",
-  #          "      ",
-  #          "   A  ")
-  #   pass
-  #   screen("     @",
-  #          "      ",
-  #          "      ",
-  #          "      ",
-  #          "   A  ")
-  #   pass
-  #   screen("    @ ",
-  #          "      ",
-  #          "      ",
-  #          "      ",
-  #          "   A  ")
-  # end
+  def test_hero_shoot
+    fire
+    screen(" @ @  ",
+           "      ",
+           "      ",
+           "   '  ",
+           "   A  ")
+    pass
+    screen(" @ @  ",
+           "      ",
+           "   '  ",
+           "      ",
+           "   A  ")
+    pass
+    screen(" @ @  ",
+           "   '  ",
+           "      ",
+           "      ",
+           "   A  ")
+    pass
+    screen(" @ '  ",
+           "      ",
+           "      ",
+           "      ",
+           "   A  ")
+    pass
+  end
 
   # def test_win_game
   #   fire
@@ -117,15 +112,6 @@ class AcceptanceTest < Test::Unit::TestCase
   #          "      ",
   #          "   A  ")
 
-  # end
-
-  # def test_zombie_closer
-  #   pass(40)
-  #   screen("      ",
-  #          "@ @   ",
-  #          "      ",
-  #          "      ",
-  #          "   A  ")
   # end
 
   def left(count = 1)
