@@ -105,6 +105,13 @@ class AcceptanceTest < Test::Unit::TestCase
 
   def assert_screen(screen)
     assert_equal(screen.join("\n"), @game.render)
+
+    assert_equal(
+      [" @ @  ",
+       "      ",
+       "      ",
+       "   '  ",
+       "   A  "].join("\n"), @game.render)
   end
 end
 

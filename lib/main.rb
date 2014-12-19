@@ -7,7 +7,6 @@ class Main
     @game = Game.new
 
     while true
-      @game.clear_screen
       puts @game.render
 
       begin
@@ -21,7 +20,7 @@ class Main
 
         @game.action($input)
       rescue Timeout::Error
-        # pass
+        @game.pass
       end
     end
   end

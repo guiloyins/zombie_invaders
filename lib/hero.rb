@@ -4,17 +4,17 @@ class Hero
 	attr_accessor :position, :fire_position
 
 	def initialize
-		@position = 30
+		@position = 3
 		@fire_position = nil
 	end
 
 	def action(key)
 		if key == 'd'
-			@position += 2 if @position < 36
+			@position += 1 if @position < 6
 		elsif	key == 'l'
 			@fire_position = @position
 		else
-			@position -= 2 if @position > 0
+			@position -= 1 if @position > 0
 		end
 	end
 
