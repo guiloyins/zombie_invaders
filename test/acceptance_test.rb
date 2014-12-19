@@ -117,25 +117,25 @@ class AcceptanceTest < Test::Unit::TestCase
   end
 
 
-  def test_win_game
-    left(2)
-    pass(120)
-    6.times { 
-      fire
-      pass(5)
-      right }
-    pass(80)
-    6.times { 
-      fire
-      pass(5)
-      left }
-    screen("      ",
-           " YOU  ",
-           "  WIN ",
-           "      ",
-           "   A  ")
+  # def test_win_game
+  #   left(2)
+  #   pass(120)
+  #   6.times { 
+  #     fire
+  #     pass(5)
+  #     right }
+  #   pass(80)
+  #   6.times { 
+  #     fire
+  #     pass(5)
+  #     left }
+  #   screen("      ",
+  #          " YOU  ",
+  #          "  WIN ",
+  #          "      ",
+  #          "   A  ")
 
-  end
+  # end
 
   def left(count = 1)
     count.times { @game.left }
