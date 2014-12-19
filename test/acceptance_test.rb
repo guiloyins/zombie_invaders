@@ -62,71 +62,71 @@ class AcceptanceTest < Test::Unit::TestCase
        "A     ")
   end
 
-  def test_hero_shoot
-    fire
-    screen("@ @   ",
-           "      ",
-           "      ",
-           "   '  ",
-           "   A  ")
-    pass
-    screen(" @ @  ",
-           "      ",
-           "   '  ",
-           "      ",
-           "   A  ")
-    pass
-    screen("  @ @ ",
-           "   '  ",
-           "      ",
-           "      ",
-           "   A  ")
-    pass
-    screen("     @",
-           "      ",
-           "      ",
-           "      ",
-           "   A  ")
-    pass
-    screen("    @ ",
-           "      ",
-           "      ",
-           "      ",
-           "   A  ")
-  end
+  # def test_hero_shoot
+  #   fire
+  #   screen("@ @   ",
+  #          "      ",
+  #          "      ",
+  #          "   '  ",
+  #          "   A  ")
+  #   pass
+  #   screen(" @ @  ",
+  #          "      ",
+  #          "   '  ",
+  #          "      ",
+  #          "   A  ")
+  #   pass
+  #   screen("  @ @ ",
+  #          "   '  ",
+  #          "      ",
+  #          "      ",
+  #          "   A  ")
+  #   pass
+  #   screen("     @",
+  #          "      ",
+  #          "      ",
+  #          "      ",
+  #          "   A  ")
+  #   pass
+  #   screen("    @ ",
+  #          "      ",
+  #          "      ",
+  #          "      ",
+  #          "   A  ")
+  # end
 
-  def test_win_game
-    fire
-    pass(4)
-    screen("    @ ",
-           "      ",
-           "      ",
-           "      ",
-           "   A  ")
-    pass(4)
-    screen("@     ",
-           "      ",
-           "      ",
-           "      ",
-           "   A  ")
-    fire
-    pass(3)
-    screen("      ",
-           " YOU  ",
-           "  WIN ",
-           "      ",
-           "   A  ")
+  # def test_win_game
+  #   fire
+  #   pass(4)
+  #   screen("    @ ",
+  #          "      ",
+  #          "      ",
+  #          "      ",
+  #          "   A  ")
+  #   pass(4)
+  #   screen("@     ",
+  #          "      ",
+  #          "      ",
+  #          "      ",
+  #          "   A  ")
+  #   fire
+  #   pass(3)
+  #   screen("      ",
+  #          " YOU  ",
+  #          "  WIN ",
+  #          "      ",
+  #          "   A  ")
 
-  end
+  # end
 
-  def test_zombie_closer
-    pass(40)
-    screen("      ",
-           "@ @   ",
-           "      ",
-           "      ",
-           "   A  ")
-  end
+  # def test_zombie_closer
+  #   pass(40)
+  #   screen("      ",
+  #          "@ @   ",
+  #          "      ",
+  #          "      ",
+  #          "   A  ")
+  # end
 
   def left(count = 1)
     count.times { @game.left }
