@@ -20,7 +20,7 @@ class HeroTest < MiniTest::Unit::TestCase
 	end
 
 	def test_hero_action_fire
-		assert_equal(:fire, Hero.new.action('l')) 
+		assert_equal(30, Hero.new.action('l')) 
 	end
 
 	def test_hero_cloth

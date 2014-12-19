@@ -17,6 +17,11 @@ class Renderer
     37.times { @hero_animation << " " }
     @hero_animation[@hero.position] = @hero.cloth
 
+
+    @hero_shot = []
+    37.times { @hero_shot << " " }
+    @hero_shot[@hero.fire_position] = "'" if @hero.fire_position
+
    %{
    ╔═════════════════════════════════════╗
    ║                                     ║
@@ -30,7 +35,7 @@ class Renderer
    ║                                     ║
    ║                                     ║
    ║                                     ║
-   ║#{ @hero_shot.join }                                     ║
+   ║#{ @hero_shot.join }║
    ║#{ @hero_animation.join }║
    ║_____________________________________║
    ║   A = Left , D = Right, Q = Quit    ║
