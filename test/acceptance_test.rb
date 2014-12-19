@@ -80,6 +80,12 @@ class AcceptanceTest < Test::Unit::TestCase
                    "      ",
                    "      ",
                    "   A  "])
+    @game.pass
+    assert_screen(["    @ ",
+                   "      ",
+                   "      ",
+                   "      ",
+                   "   A  "])
   end
 
   def assert_screen(screen)
