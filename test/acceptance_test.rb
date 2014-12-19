@@ -119,6 +119,15 @@ class AcceptanceTest < Test::Unit::TestCase
 
   end
 
+  def test_zombie_closer
+    pass(40)
+    screen("      ",
+           "@ @   ",
+           "      ",
+           "      ",
+           "   A  ")
+  end
+
   def left(count = 1)
     count.times { @game.left }
   end
