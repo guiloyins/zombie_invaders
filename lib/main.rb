@@ -3,10 +3,15 @@ require './lib/game'
 
 class Main
 
-  def self.run
+  def clear
+    30.times { puts "\n" }
+  end
+
+  def run
     @game = Game.new
 
     while true
+      puts clear
       puts @game.render
 
       begin
@@ -26,4 +31,4 @@ class Main
   end
 end
 
-Main.run
+Main.new.run

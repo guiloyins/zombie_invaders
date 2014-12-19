@@ -6,43 +6,48 @@ require "timeout"
 
 class Game
   attr_reader :renderer
+  HERO = "A"
+  START_POSITION = 3
+  WIDTH = 5
+  HEIGHT = 4
 
   HERO_CHAR = "A"
 
   def initialize
-    @renderer = Renderer.new(@hero)
-    @hero_animation, @hero_fire = [], []
-    @fire_position = nil
-    @hero_position = 3
-    6.times do
-      @hero_animation << " "
-      @hero_fire << " "
-    end
-    @hero_animation[@hero_position] = HERO_CHAR
+    @hero_position = START_POSITION
+
+    @game_matriz = [
+                    [' ','@',' ','@',' ',' '],
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ',' ',' ',' ',' ',' ']
+                  ]
   end
 
   def render
-    @hero_animation = []
-    6.times { @hero_animation << " " }
+    @game_matriz[HEIGHT][@hero_position] = HERO
+    # @hero_fire[@fire_position] = "'" if @fire_position
 
-    @hero_animation[@hero_position] = HERO_CHAR
-    @hero_fire[@fire_position] = "'" if @fire_position
-
-    @renderer.clear
-
-    [" @ @  ",
-     "      ",
-     "      ",
-     "#{ @hero_fire.join }",
-     "#{ @hero_animation.join }"].join("\n")
+    return @game_matriz.collect do |row|
+      row.join("")
+    end.join("\n")
   end
 
   def left
-    @hero_position -= 1 if @hero_position > 0
+    if @hero_position > 0
+      @game_matriz[HEIGHT][@hero_position] = " "
+      @hero_position -= 1
+      @game_matriz[HEIGHT][@hero_position] = HERO
+    end
   end
 
   def right
-    @hero_position += 1 if @hero_position < 5
+    if @hero_position < WIDTH
+      @game_matriz[HEIGHT][@hero_position] = " "
+      @hero_position += 1
+      @game_matriz[HEIGHT][@hero_position] = HERO
+    end
   end
 
   def fire
@@ -51,5 +56,4 @@ class Game
 
   def pass
   end
-
 end

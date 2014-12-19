@@ -52,11 +52,7 @@ class AcceptanceTest < Test::Unit::TestCase
   end
 
   def test_move_left_max
-    @game.left
-    @game.left
-    @game.left
-    @game.left
-    @game.left
+    left(5)
 
     screen(
       " @ @  ",
@@ -108,6 +104,14 @@ class AcceptanceTest < Test::Unit::TestCase
   #                  "      ",
   #                  "   A  ")
   # end
+
+  def left(count = 1)
+    count.times { @game.left }
+  end
+
+  def right(count = 1)
+    count.times { @game.right }
+  end
 
   def screen(*lines)
     assert_equal(lines.join("\n"), @game.render)
