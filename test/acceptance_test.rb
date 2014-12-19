@@ -118,21 +118,17 @@ class AcceptanceTest < Test::Unit::TestCase
 
 
   def test_win_game
-    fire
-    pass(4)
-    screen("    @ ",
-           "      ",
-           "      ",
-           "      ",
-           "   A  ")
-    pass(4)
-    screen("@     ",
-           "      ",
-           "      ",
-           "      ",
-           "   A  ")
-    fire
-    pass(3)
+    left(2)
+    pass(120)
+    6.times { 
+      fire
+      pass(5)
+      right }
+    pass(80)
+    6.times { 
+      fire
+      pass(5)
+      left }
     screen("      ",
            " YOU  ",
            "  WIN ",
