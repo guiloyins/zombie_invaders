@@ -62,48 +62,48 @@ class AcceptanceTest < Test::Unit::TestCase
        "A     ")
   end
 
-  # def test_hero_shoot
-  #   @game.fire
-  #   screen("@ @   ",
-  #                  "      ",
-  #                  "      ",
-  #                  "   '  ",
-  #                  "   A  ")
-  #   @game.pass
-  #   screen(" @ @  ",
-  #                  "      ",
-  #                  "   '  ",
-  #                  "      ",
-  #                  "   A  ")
-  #   @game.pass
-  #   screen("  @ @ ",
-  #                  "   '  ",
-  #                  "      ",
-  #                  "      ",
-  #                  "   A  ")
-  #   @game.pass
-  #   screen("     @",
-  #                  "      ",
-  #                  "      ",
-  #                  "      ",
-  #                  "   A  ")
-  #   @game.pass
-  #   screen("    @ ",
-  #                  "      ",
-  #                  "      ",
-  #                  "      ",
-  #                  "   A  ")
-  # end
+  def test_hero_shoot
+    fire
+    screen("@ @   ",
+                   "      ",
+                   "      ",
+                   "   '  ",
+                   "   A  ")
+    pass
+    screen(" @ @  ",
+                   "      ",
+                   "   '  ",
+                   "      ",
+                   "   A  ")
+    pass
+    screen("  @ @ ",
+                   "   '  ",
+                   "      ",
+                   "      ",
+                   "   A  ")
+    pass
+    screen("     @",
+                   "      ",
+                   "      ",
+                   "      ",
+                   "   A  ")
+    pass
+    screen("    @ ",
+                   "      ",
+                   "      ",
+                   "      ",
+                   "   A  ")
+  end
 
-  # def test_game_over
-  #   @game.fire
-  #   4.times { @game.pass }
-  #   screen("    @ ",
-  #                  "      ",
-  #                  "      ",
-  #                  "      ",
-  #                  "   A  ")
-  # end
+  def test_game_over
+    fire
+    pass(4)
+    screen("    @ ",
+                   "      ",
+                   "      ",
+                   "      ",
+                   "   A  ")
+  end
 
   def left(count = 1)
     count.times { @game.left }
