@@ -19,6 +19,13 @@ class Game
                     [' ',' ',' ',' ',' ',' '],
                     [' ',' ','A',' ',' ',' ']
                   ]
+  GAME_OVER_SCREEN = [
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ','Y','O','U',' ',' '],
+                    [' ',' ','L','O','S','E'],
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ',' ','A',' ',' ',' ']
+                  ]
 
   HERO_CHAR = "A"
 
@@ -48,6 +55,10 @@ class Game
   def render
     if win?
       return WIN_SCREEN.collect do |row|
+        row.join("")
+      end.join("\n")
+    elsif lose?
+      return GAME_OVER_SCREEN.collect do |row|
         row.join("")
       end.join("\n")
     else
@@ -118,5 +129,10 @@ class Game
       return false if row.include?(ZOMBIE)
     end
     true
+  end
+
+  def lose?
+    dead_line = @game_matriz.last 
+    dead_line.include?(ZOMBIE)
   end
 end
