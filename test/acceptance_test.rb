@@ -97,21 +97,21 @@ class AcceptanceTest < Test::Unit::TestCase
            "      ",
            "   A  ")
     pass(40)
+    screen(" @@   ",
+           " @ @  ",
+           "      ",
+           "      ",
+           "   A  ")
+    pass(40)
     screen(" @   @",
-           " @ @  ",
-           "      ",
-           "      ",
-           "   A  ")
-    pass(40)
-    screen(" @  @ ",
-           " @   @",
+           " @@   ",
            " @ @  ",
            "      ",
            "   A  ")
     pass(40)
-    screen("@    @",
-           " @  @ ",
+    screen(" @ @  ",
            " @   @",
+           " @@   ",
            " @ @  ",
            "   A  ")
   end
