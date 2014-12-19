@@ -132,7 +132,7 @@ class AcceptanceTest < Test::Unit::TestCase
            " YOU  ",
            "  WIN ",
            "      ",
-           "  A   ")
+           "      ")
 
   end
 
@@ -142,7 +142,7 @@ class AcceptanceTest < Test::Unit::TestCase
            " YOU  ",
            "  LOSE",
            "      ",
-           "  A   ")
+           "      ")
   end
 
   def left(count = 1)
