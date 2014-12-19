@@ -64,6 +64,7 @@ class Game
   def pass
     if @fire_col && @fire_row
       if @fire_row == 0
+        @game_matriz[@fire_row][@fire_col] = ' '
         @fire_row = nil
         @fire_col = nil
       else
