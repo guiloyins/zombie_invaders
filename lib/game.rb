@@ -12,11 +12,13 @@ class Game
   START_POSITION = 3
   WIDTH = 5
   HEIGHT = 4
-  WIN_SCREEN = ["      ",
-                " YOU  ",
-                "  WIN ",
-                "      ",
-                "   A  "]
+  WIN_SCREEN = [
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ','Y','O','U',' ',' '],
+                    [' ',' ','W','I','N',' '],
+                    [' ',' ',' ',' ',' ',' '],
+                    [' ',' ','A',' ',' ',' ']
+                  ]
 
   HERO_CHAR = "A"
 
@@ -44,12 +46,13 @@ class Game
   end
 
   def render
-    if @zombies.length == 0
-      return WIN_SCREEN
+    if win?
+      return WIN_SCREEN.collect do |row|
+        row.join("")
+      end.join("\n")
     else
       @game_matriz[HEIGHT][@hero_position] = HERO
       @game_matriz[@fire_row][@fire_col] = FIRE if @fire_col && @fire_row
-      # @hero_fire[@fire_position] = "'" if @fire_position
 
       return @game_matriz.collect do |row|
         row.join("")
@@ -102,6 +105,18 @@ class Game
     if @zombies.length > 0
       @game_matriz.pop
       @game_matriz.unshift(@zombies.pop)
+    else
+      empty_row = [' ',' ',' ',' ',' ',' ']
+      @game_matriz.pop
+      @game_matriz.unshift(empty_row)
     end
+  end
+
+  def win?
+    return false if @zombies.length > 0
+    @game_matriz.each do |row|
+      return false if row.include?(ZOMBIE)
+    end
+    true
   end
 end
