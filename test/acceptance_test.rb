@@ -90,6 +90,33 @@ class AcceptanceTest < Test::Unit::TestCase
     pass
   end
 
+  def test_enemy_movement
+    screen(" @ @  ",
+           "      ",
+           "      ",
+           "      ",
+           "   A  ")
+    pass(40)
+    screen(" @   @",
+           " @ @  ",
+           "      ",
+           "      ",
+           "   A  ")
+    pass(40)
+    screen(" @  @ ",
+           " @   @",
+           " @ @  ",
+           "      ",
+           "   A  ")
+    pass(40)
+    screen("@    @",
+           " @  @ ",
+           " @   @",
+           " @ @  ",
+           "   A  ")
+  end
+
+
   # def test_win_game
   #   fire
   #   pass(4)
