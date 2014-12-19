@@ -11,7 +11,7 @@ class Main
     @game = Game.new
 
     while true
-      puts clear
+      clear
       puts @game.render
 
       begin
