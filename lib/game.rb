@@ -12,6 +12,11 @@ class Game
   START_POSITION = 3
   WIDTH = 5
   HEIGHT = 4
+  WIN_SCREEN = ["      ",
+                " YOU  ",
+                "  WIN ",
+                "      ",
+                "   A  "]
 
   HERO_CHAR = "A"
 
@@ -39,13 +44,17 @@ class Game
   end
 
   def render
-    @game_matriz[HEIGHT][@hero_position] = HERO
-    @game_matriz[@fire_row][@fire_col] = FIRE if @fire_col && @fire_row
-    # @hero_fire[@fire_position] = "'" if @fire_position
+    if @zombies.length == 0
+      return WIN_SCREEN
+    else
+      @game_matriz[HEIGHT][@hero_position] = HERO
+      @game_matriz[@fire_row][@fire_col] = FIRE if @fire_col && @fire_row
+      # @hero_fire[@fire_position] = "'" if @fire_position
 
-    return @game_matriz.collect do |row|
-      row.join("")
-    end.join("\n")
+      return @game_matriz.collect do |row|
+        row.join("")
+      end.join("\n")
+    end
   end
 
   def left
