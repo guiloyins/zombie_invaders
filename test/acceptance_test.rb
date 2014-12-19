@@ -15,7 +15,7 @@ class AcceptanceTest < Test::Unit::TestCase
        "      ",
        "      ",
        "      ",
-       "   A  "].join('\n'), @game.render)
+       "   A  "].join("\n"), @game.render)
   end
 
   def test_move_left
@@ -26,7 +26,7 @@ class AcceptanceTest < Test::Unit::TestCase
        "      ",
        "      ",
        "      ",
-       "  A   "].join('\n'), @game.render)
+       "  A   "].join("\n"), @game.render)
   end
 
   def test_move_right
@@ -37,7 +37,7 @@ class AcceptanceTest < Test::Unit::TestCase
        "      ",
        "      ",
        "      ",
-       "    A "].join('\n'), @game.render)
+       "    A "].join("\n"), @game.render)
   end
 
   def test_move_right_max
@@ -52,7 +52,7 @@ class AcceptanceTest < Test::Unit::TestCase
        "      ",
        "      ",
        "      ",
-       "     A"].join('\n'), @game.render)
+       "     A"].join("\n"), @game.render)
   end
 
   def test_hero_shoot
@@ -63,7 +63,7 @@ class AcceptanceTest < Test::Unit::TestCase
        "      ",
        "      ",
        "   '  ",
-       "   A  "].join('\n'), @game.render)
+       "   A  "].join("\n"), @game.render)
   end
 end
 

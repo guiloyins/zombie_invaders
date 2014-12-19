@@ -1,5 +1,5 @@
 # encoding: utf-8
-require './game'
+require './lib/game'
 
 class Main
 

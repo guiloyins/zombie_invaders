@@ -21,7 +21,7 @@ class Game
      "      ",
      "      ",
      "      ",
-     "   A  "].join('\n')
+     "   A  "].join("\n")
   end
 
   def action(key)
