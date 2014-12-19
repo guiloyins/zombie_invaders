@@ -1,4 +1,6 @@
 # encoding: utf-8
+
+require 'io/console'
 require './lib/game'
 
 class Main
