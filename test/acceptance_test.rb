@@ -55,6 +55,21 @@ class AcceptanceTest < Test::Unit::TestCase
        "     A"])
   end
 
+  def test_move_left_max
+    @game.left
+    @game.left
+    @game.left
+    @game.left
+    @game.left
+
+    assert_screen(
+      [" @ @  ",
+       "      ",
+       "      ",
+       "      ",
+       "A     "])
+  end
+
   def test_hero_shoot
     @game.fire
     assert_screen(["@ @   ",
