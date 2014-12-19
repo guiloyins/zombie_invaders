@@ -37,7 +37,7 @@ class Game
   end
 
   def left
-    @hero_position -= 1
+    @hero_position -= 1 if @hero_position > 0
   end
 
   def right
