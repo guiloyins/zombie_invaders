@@ -16,6 +16,7 @@ class Game
   HERO_CHAR = "A"
 
   def initialize
+    @pass_count = 0
     @hero_position = START_POSITION
     @fire_row = nil
     @fire_col = nil
@@ -26,6 +27,14 @@ class Game
                     [' ',' ',' ',' ',' ',' '],
                     [' ',' ',' ',' ',' ',' '],
                     [' ',' ',' ',' ',' ',' ']
+                  ]
+
+    @zombies = [
+                    [' ',ZOMBIE,' ',ZOMBIE,' ',' '],
+                    [ZOMBIE,' ',' ',' ',' ',ZOMBIE],
+                    [' ',ZOMBIE,' ',ZOMBIE,' ',' '],
+                    [' ',ZOMBIE,' ',' ',' ',ZOMBIE],
+                    [' ',ZOMBIE,ZOMBIE,' ',' ',' ']
                   ]
   end
 
@@ -63,6 +72,10 @@ class Game
   end
 
   def pass
+    @pass_count += 1
+    if @pass_count % 40 == 0
+      add_new_zombies
+    end
     if @fire_col && @fire_row
       if @fire_row == 0
         @game_matriz[@fire_row][@fire_col] = ' '
@@ -73,6 +86,13 @@ class Game
         @fire_row -= 1
         @game_matriz[@fire_row][@fire_col] = FIRE
       end
+    end
+  end
+
+  def add_new_zombies
+    if @zombies.length
+      @game_matriz.pop
+      @game_matriz.unshift(@zombies.pop)
     end
   end
 end
