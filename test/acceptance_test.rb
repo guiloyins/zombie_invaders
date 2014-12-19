@@ -65,44 +65,58 @@ class AcceptanceTest < Test::Unit::TestCase
   def test_hero_shoot
     fire
     screen("@ @   ",
-                   "      ",
-                   "      ",
-                   "   '  ",
-                   "   A  ")
+           "      ",
+           "      ",
+           "   '  ",
+           "   A  ")
     pass
     screen(" @ @  ",
-                   "      ",
-                   "   '  ",
-                   "      ",
-                   "   A  ")
+           "      ",
+           "   '  ",
+           "      ",
+           "   A  ")
     pass
     screen("  @ @ ",
-                   "   '  ",
-                   "      ",
-                   "      ",
-                   "   A  ")
+           "   '  ",
+           "      ",
+           "      ",
+           "   A  ")
     pass
     screen("     @",
-                   "      ",
-                   "      ",
-                   "      ",
-                   "   A  ")
+           "      ",
+           "      ",
+           "      ",
+           "   A  ")
     pass
     screen("    @ ",
-                   "      ",
-                   "      ",
-                   "      ",
-                   "   A  ")
+           "      ",
+           "      ",
+           "      ",
+           "   A  ")
   end
 
-  def test_game_over
+  def test_win_game
     fire
     pass(4)
     screen("    @ ",
-                   "      ",
-                   "      ",
-                   "      ",
-                   "   A  ")
+           "      ",
+           "      ",
+           "      ",
+           "   A  ")
+    pass(4)
+    screen("@     ",
+           "      ",
+           "      ",
+           "      ",
+           "   A  ")
+    fire
+    pass(3)
+    screen("      ",
+           " YOU  ",
+           "  WIN ",
+           "      ",
+           "   A  ")
+
   end
 
   def left(count = 1)
