@@ -1,7 +1,7 @@
 # encoding: utf-8
 
-require "./hero"
-require "./renderer"
+require "./lib/hero"
+require "./lib/renderer"
 require "timeout"
 
 class Game
@@ -17,10 +17,27 @@ class Game
   end
 
   def render
-    @renderer.call
+    [" @ @  ",
+     "      ",
+     "      ",
+     "      ",
+     "   A  "].join('\n')
   end
 
   def action(key)
     @hero.action(key)
   end
+
+  def left
+  end
+
+  def right
+  end
+
+  def fire
+  end
+
+  def pass
+  end
+
 end
