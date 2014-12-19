@@ -5,27 +5,22 @@ require "./renderer"
 require "timeout"
 
 class Game
+  attr_reader :renderer
+
   def initialize
-    hero = Hero.new
-    renderer = Renderer.new(hero)
+    @hero = Hero.new
+    @renderer = Renderer.new(@hero)
+  end
 
-    while true
-      renderer.clear
-      puts renderer.call
+  def clear_screen
+    @renderer.clear
+  end
 
-      begin
-        Timeout::timeout(0.1) do
-          $input = STDIN.getch
-        end
+  def render
+    @renderer.call
+  end
 
-        if $input == 'q'
-          exit
-        end
-
-        hero.action($input)
-      rescue Timeout::Error
-        # pass
-      end
-    end
+  def action(key)
+    @hero.action(key)
   end
 end
