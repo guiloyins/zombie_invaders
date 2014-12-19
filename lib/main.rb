@@ -17,7 +17,7 @@ class Main
       puts @game.render
 
       begin
-        Timeout::timeout(0.1) do
+        Timeout::timeout(0.07) do
           $input = STDIN.getch
         end
 
