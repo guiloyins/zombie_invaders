@@ -113,6 +113,14 @@ class AcceptanceTest < Test::Unit::TestCase
     count.times { @game.right }
   end
 
+  def fire
+    @game.fire
+  end
+
+  def pass(count = 1)
+    count.times { @game.pass }
+  end
+
   def screen(*lines)
     assert_equal(lines.join("\n"), @game.render)
   end
