@@ -17,8 +17,18 @@ class Main
         if $input == 'q'
           exit
         end
+        
+        if $input == 'a'
+          @game.left
+        end
 
-        @game.action($input)
+        if $input == 'd'
+          @game.right
+        end
+
+        if $input == 'l'
+          @game.fire
+        end
       rescue Timeout::Error
         @game.pass
       end
