@@ -116,16 +116,15 @@ class AcceptanceTest < Test::Unit::TestCase
            "   A  ")
   end
 
-
   # def test_win_game
   #   left(2)
   #   pass(120)
-  #   6.times { 
+  #   6.times {
   #     fire
   #     pass(5)
   #     right }
   #   pass(80)
-  #   6.times { 
+  #   6.times {
   #     fire
   #     pass(5)
   #     left }
@@ -136,6 +135,15 @@ class AcceptanceTest < Test::Unit::TestCase
   #          "   A  ")
 
   # end
+
+  def test_lose_game
+    pass(220)
+    screen("      ",
+           " YOU  ",
+           "  LOSE",
+           "      ",
+           "   A  ")
+  end
 
   def left(count = 1)
     count.times { @game.left }
