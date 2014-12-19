@@ -10,60 +10,62 @@ class AcceptanceTest < Test::Unit::TestCase
 
   def test_initial_game
 
-    assert_equal(
+    assert_screen(
       [" @ @  ",
        "      ",
        "      ",
        "      ",
-       "   A  "].join("\n"), @game.render)
+       "   A  "])
   end
 
   def test_move_left
-    @game.action('a')
+    @game.left
 
-    assert_equal(
+    assert_screen(
       [" @ @  ",
        "      ",
        "      ",
        "      ",
-       "  A   "].join("\n"), @game.render)
+       "  A   "])
   end
 
   def test_move_right
-    @game.action('d')
+    @game.right
 
-    assert_equal(
+    assert_screen(
       [" @ @  ",
        "      ",
        "      ",
        "      ",
-       "    A "].join("\n"), @game.render)
+       "    A "])
   end
 
   def test_move_right_max
-    @game.action('d')
-    @game.action('d')
-    @game.action('d')
-    @game.action('d')
-    @game.action('d')
+    @game.right
+    @game.right
+    @game.right
+    @game.right
+    @game.right
 
-    assert_equal(
+    assert_screen(
       [" @ @  ",
        "      ",
        "      ",
        "      ",
-       "     A"].join("\n"), @game.render)
+       "     A"])
   end
 
   def test_hero_shoot
-    @game.action('l')
-    
-    assert_equal(
-      [" @ @  ",
-       "      ",
-       "      ",
-       "   '  ",
-       "   A  "].join("\n"), @game.render)
+    @game.fire
+    assert_screen([" @ @  ",
+                   "      ",
+                   "      ",
+                   "   '  ",
+                   "   A  "])
+  end
+
+  def assert_screen(screen)
+    assert_equal(screen.join("\n"), @game.render)
   end
 end
 
