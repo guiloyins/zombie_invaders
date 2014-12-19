@@ -2,6 +2,7 @@
 
 require "./hero"
 require "./renderer"
+require "timeout"
 
 class Game
   def initialize
@@ -11,14 +12,20 @@ class Game
     while true
       renderer.clear
       puts renderer.call
-      input = STDIN.getch
-      puts input
 
-      if input == 'q'
-        exit
+      begin
+        Timeout::timeout(0.1) do
+          $input = STDIN.getch
+        end
+
+        if $input == 'q'
+          exit
+        end
+
+        hero.action($input)
+      rescue Timeout::Error
+        # pass
       end
-
-      hero.action(input)
     end
   end
 end
