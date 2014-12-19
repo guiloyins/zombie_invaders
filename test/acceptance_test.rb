@@ -57,7 +57,7 @@ class AcceptanceTest < Test::Unit::TestCase
 
   def test_hero_shoot
     @game.fire
-    assert_screen([" @ @  ",
+    assert_screen(["@ @   ",
                    "      ",
                    "      ",
                    "   '  ",
@@ -69,13 +69,13 @@ class AcceptanceTest < Test::Unit::TestCase
                    "      ",
                    "   A  "])
     @game.pass
-    assert_screen([" @ @  ",
+    assert_screen(["  @ @ ",
                    "   '  ",
                    "      ",
                    "      ",
                    "   A  "])
     @game.pass
-    assert_screen([" @    ",
+    assert_screen(["     @",
                    "      ",
                    "      ",
                    "      ",
