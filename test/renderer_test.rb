@@ -119,5 +119,17 @@ class RendererTest < Test::Unit::TestCase
 
     assert_equal(render_spected, render)
   end
+
+  def test_hero_shoot
+    @hero.action('l')
+    render = Renderer.new(@hero).call
+    render_spected = 
+%{
+   ║                              '      ║
+   ║                              A      ║
+   }
+
+    assert_equal(true, render.include?(render_spected)) 
+  end
 end
 

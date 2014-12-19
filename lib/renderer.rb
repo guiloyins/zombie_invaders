@@ -30,7 +30,7 @@ class Renderer
    ║                                     ║
    ║                                     ║
    ║                                     ║
-   ║                                     ║
+   ║#{ @hero_shot.join }                                     ║
    ║#{ @hero_animation.join }║
    ║_____________________________________║
    ║   A = Left , D = Right, Q = Quit    ║
