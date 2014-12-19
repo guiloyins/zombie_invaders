@@ -6,6 +6,7 @@ require "timeout"
 
 class Game
   attr_reader :renderer
+  ZOMBIE = "@"
   HERO = "A"
   FIRE = "'"
   START_POSITION = 3
@@ -20,7 +21,7 @@ class Game
     @fire_col = nil
 
     @game_matriz = [
-                    [' ','@',' ','@',' ',' '],
+                    [' ',ZOMBIE,' ',ZOMBIE,' ',' '],
                     [' ',' ',' ',' ',' ',' '],
                     [' ',' ',' ',' ',' ',' '],
                     [' ',' ',' ',' ',' ',' '],
